@@ -1,6 +1,5 @@
 import React from 'react'
 import { User } from '../../types/user'
-import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import '../../index.css'
 import UserInfo from './UserInfo'
 

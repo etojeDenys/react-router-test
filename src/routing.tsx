@@ -20,9 +20,6 @@ export const router = createBrowserRouter(
                     index: true,
                     element: <HomePage />,
                     loader: fetchUsers,
-                    shouldRevalidate: ({ currentUrl }) => {
-                        return false
-                    },
                 },
                 {
                     path: '/user/:userId',
@@ -34,6 +31,5 @@ export const router = createBrowserRouter(
     ],
     {
         basename: BASE_NAME,
-        // hydrationData: 'loaderData',
     }
 )

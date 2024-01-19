@@ -6,27 +6,34 @@ import UserPage from './pages/UserPage'
 import { fetchUser } from './services/fetchUser'
 import React from 'react'
 import Error from './components/Error'
+import { BASE_NAME, BASE_URL } from './constants'
 
-export const router = createBrowserRouter([
-    {
-        path: '/',
-        element: <Layout />,
-        errorElement: <Error />,
-        children: [
-            {
-                path: '/',
-                index: true,
-                element: <HomePage />,
-                loader: fetchUsers,
-                shouldRevalidate: ({ currentUrl }) => {
-                    return false
+export const router = createBrowserRouter(
+    [
+        {
+            path: '/',
+            element: <Layout />,
+            errorElement: <Error />,
+            children: [
+                {
+                    path: '/',
+                    index: true,
+                    element: <HomePage />,
+                    loader: fetchUsers,
+                    shouldRevalidate: ({ currentUrl }) => {
+                        return false
+                    },
                 },
-            },
-            {
-                path: '/user/:userId',
-                element: <UserPage />,
-                loader: ({ params }) => fetchUser(params.userId!),
-            },
-        ],
-    },
-])
+                {
+                    path: '/user/:userId',
+                    element: <UserPage />,
+                    loader: ({ params }) => fetchUser(params.userId!),
+                },
+            ],
+        },
+    ],
+    {
+        basename: BASE_NAME,
+        // hydrationData: 'loaderData',
+    }
+)

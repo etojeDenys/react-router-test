@@ -34,7 +34,8 @@ const UserInfo: React.FC<Props> = ({
         <li data-cy="website">
             <span className="font-semibold italic">Website:</span>{' '}
             <a
-                href={website}
+                href={`https://${website}`}
+                target="_blank"
                 className="font-semibold italic text-blue-600 underline hover:text-blue-950"
             >
                 {website}

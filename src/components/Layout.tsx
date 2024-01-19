@@ -1,6 +1,7 @@
 import { NavLink, Outlet, useNavigation } from 'react-router-dom'
 import React from 'react'
 import Loader from './Loader'
+import { BASE_URL } from '../constants'
 
 const Layout = () => {
     const navigation = useNavigation()
@@ -11,7 +12,7 @@ const Layout = () => {
         <>
             <nav className="mx-10 my-4">
                 <NavLink
-                    to="/"
+                    to={BASE_URL}
                     className={({ isActive }) =>
                         isActive
                             ? 'text-gray-400 underline'
